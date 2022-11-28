@@ -4,16 +4,14 @@
  */
 package vertebrata;
 
+import abstractPackage.Hewan;
+
+
 /**
  *
  * @author ubaid
  */
-public class Vertebrata {
-    // Reptil Buaya
-    String nama = "Buaya";
-    String makanan = "Karnivora";
-    String habitat = "Darat";
-    String reproduksi = "Ovovivipar";
+public class Vertebrata extends Hewan {
 
     public Vertebrata() {
     }
@@ -34,6 +32,7 @@ public class Vertebrata {
         System.out.println(nama + " bersisik keras");
     }
     
+    @Override
     public void ukuran() {
         System.out.println(nama + " berukuran besar");
     }

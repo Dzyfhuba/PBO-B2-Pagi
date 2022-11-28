@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package hewan;
+import abstractPackage.Abstract2;
+import abstractPackage.Hewan;
 import vertebrata.Aves;
 import vertebrata.Vertebrata;
 
@@ -37,6 +39,31 @@ public class Main {
                 "darat dan udara", "bertelur");
         merpati.ukuran();
         merpati.detailHewan();
+        
+        System.out.println("===========================");
+        
+        Abstract2 test = new Abstract2() {
+            @Override
+            public void cetak() {
+                System.out.println("body test");
+            }
+        };
+        
+        test.cetak();
+        
+        System.out.println("==========================");
+        
+        Hewan ular = new Hewan() {
+            @Override
+            public void ukuran() {
+                System.out.println("ukuran: ada kecil ada besar");
+            }
+        };
+        
+        ular.detailHewan();
+        ular.ukuran();
+//        ular.co
     }
     
 }
+ 

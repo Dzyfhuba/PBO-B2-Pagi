@@ -21,6 +21,6 @@ public class Aves extends Vertebrata{
     
     @Override
     public void ukuran() {
-        System.out.println(nama + " berukuran kecil");
+        System.out.println(this.nama + " berukuran kecil");
     }
 }
