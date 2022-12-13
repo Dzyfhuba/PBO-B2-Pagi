@@ -19,7 +19,7 @@ import javax.swing.JTextField;
 public class Main extends JFrame {
     static JTextField bil_a;
     static JTextField bil_b;
-    static JButton tambah;
+    static JButton tambah, kurang, kali, bagi;
     static JLabel hasil;
 
     public Main(){
@@ -31,19 +31,41 @@ public class Main extends JFrame {
         bil_b.setBounds(502, 5, 492, 50);
         tambah = new JButton("+");
         tambah.setBounds(5, 60, 50, 50);
+        kurang = new JButton("-");
+        kurang.setBounds(60, 60, 50, 50);
+        kali = new JButton("*");
+        kali.setBounds(115, 60, 50, 50);
+        bagi = new JButton("/");
+        bagi.setBounds(170, 60, 50, 50);
         hasil = new JLabel("0");
         hasil.setBounds(300, 200, 400, 50);
         hasil.setFont(hasil.getFont().deriveFont(64f));
     }
     
     void controller() {
-        tambah.addActionListener((ActionEvent ae) -> {
-            System.out.println(""
-                    + "hasil: "
-                    + (Integer.parseInt(bil_b.getText()) +
-                            Integer.parseInt(bil_a.getText())));
-            hasil.setText("" + (Integer.parseInt(bil_b.getText()) +
+        tambah.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                try {
+                    int hasil_val = (Integer.parseInt(bil_b.getText())
+                            + Integer.parseInt(bil_a.getText()));
+                    hasil.setText("" + hasil);
+                } catch (NumberFormatException numberFormatException) {
+                    System.out.println("Bukan angka");
+                }
+            }
+        });
+        kurang.addActionListener((ActionEvent ae) -> {
+            hasil.setText("" + (Integer.parseInt(bil_a.getText()) -
+                    Integer.parseInt(bil_b.getText())));
+        });
+        kali.addActionListener((ActionEvent ae) -> {
+            hasil.setText("" + (Integer.parseInt(bil_b.getText()) *
                     Integer.parseInt(bil_a.getText())));
+        });
+        bagi.addActionListener((ActionEvent ae) -> {
+            hasil.setText("" + (Integer.parseInt(bil_a.getText()) /
+                    Integer.parseInt(bil_b.getText())));
         });
     }
 
@@ -65,6 +87,9 @@ public class Main extends JFrame {
         frame.add(bil_a);
         frame.add(bil_b);
         frame.add(tambah);
+        frame.add(kurang);
+        frame.add(kali);
+        frame.add(bagi);
         frame.add(hasil);
     }
     
